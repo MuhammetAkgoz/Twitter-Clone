@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+# Twitter Clone Uygulaması
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## React JS
 
-In the project directory, you can run:
+React bir JavaScript kütüphanesi olup web uygulamaları için hızlı ve interaktif kullanıcı arayüzleri oluşturmada kullanılır. Açık kaynak kodlu, bileşen bazlı ve front-end bir kütüphane olan **React**, sadece uygulamanın görünüm katmanından sorumludur. Proje React teknolojisi kullanılarak geliştirilmiştir. React'ın hooks yapısını da içermektedir.
 
-### `npm start`
+<br/>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![image](https://user-images.githubusercontent.com/60561335/145529945-33f06f1c-ba47-4e25-b64c-d2749d9241c2.png)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<br/>
 
-### `npm test`
+## Tailwind CSS
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Taildwind CSS inline bir şekilde css yazabildiğiniz bir kütüphanedir. Özellikle kendi içindekiler dışında sizin tailwind sundukları dışında onu özelleştirebiliyor olmanız belkide en büyük artısı. Projemde Tailwind CSS kullandım ve hiç css yazmadım.
 
-### `npm run build`
+```
+<div className="flex -ml-3">
+   <div className="flex items-center justify-center hover:bg-gray-extraLight w-10 h-10 rounded-full">
+      <ImageIcon className="w-5 h-5 text-primary-base" />
+   </div>
+   <div className="flex items-center justify-center hover:bg-gray-extraLight w-10 h-10 rounded-full">
+      <GIFIcon className="w-5 h-5 text-primary-base" />
+   </div>
+   <div className="flex items-center justify-center hover:bg-gray-extraLight w-10 h-10 rounded-full">
+      <EmojiIcon className="w-5 h-5 text-primary-base" />
+   </div>
+   <div className="flex items-center justify-center hover:bg-gray-extraLight w-10 h-10 rounded-full">
+       <PopulerIcon className="w-5 h-5 text-primary-base" />
+   </div>
+   <div className="flex items-center justify-center hover:bg-gray-extraLight w-10 h-10 rounded-full">
+       <ScheduleIcon className="w-5 h-5 text-primary-base" />
+   </div>
+ </div>
+ ```
+ 
+Tailwind CSS kütüphanesine [bu linkten](https://tailwindcss.com/) ulaşabilirsiniz.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Firebase/Firestore
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Firebase; uygulama yönetimi, kullanım takip, depolama, bildirim iletme gibi temel işlemleri sunucu taraflı kod yazmaya ihtiyaç duymadan halleder. Realtime Database, Notification, Remote Config gibi özelliklerle birlikte her uygulama için ayrı ayrı ulaşım imkanı sağlıyor. Proje içersinde tweet atma ve ekranda atılan tweetleri gösterme işlemlerini firebase üzerinden yapmaktayım. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Firebase kullanmak için [**firebase config**](https://firebase.google.com/docs/web/setup) dosyası oluşturulmalıdır.
 
-### `npm run eject`
+```
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import {getFirestore,collection} from "firebase/firestore"
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+const firebaseConfig = {
+  apiKey: "AIzaSyCiFldky6HwJItkalWPIbRf8Zv8Ex8q9OQ",
+  authDomain: "twitter---clone-e9b92.firebaseapp.com",
+  projectId: "twitter---clone-e9b92",
+  storageBucket: "twitter---clone-e9b92.appspot.com",
+  messagingSenderId: "763910910438",
+  appId: "1:763910910438:web:d1bafdc4a9ddbac8556627",
+  measurementId: "G-D0ZGD51XEQ"
+};
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+const db = getFirestore(app)
 
-## Learn More
+export default db;
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
